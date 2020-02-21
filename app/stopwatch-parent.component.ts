@@ -1,0 +1,26 @@
+import { Component, ViewChild } from '@angular/core';
+import { StopwatchComponent } from './stopwatch.component';
+
+@Component({
+  selector: 'app-stopwatch-parent',
+  templateUrl: './stopwatch-parent.component.html'
+})
+export class StopwatchParentComponent {
+    @ViewChild(StopwatchComponent)
+    private stopwatchComponent: StopwatchComponent;
+	startStopwatch() {
+       this.stopwatchComponent.start();
+	}
+	stopStopwatch() {
+       this.stopwatchComponent.stop();
+       }
+       restartStopWatch() {
+       this.stopwatchComponent.restart();
+       }
+       fastStopWatch() {
+              this.stopwatchComponent.faster();
+       }
+       slowStopWatch() {
+              this.stopwatchComponent.slower();
+       }
+}    
