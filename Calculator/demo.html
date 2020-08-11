@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript">
+	// ES5 implementation 
+
+	// create the class in Javascript/ECMASCript 
+
+	function Person(name,age){
+		this.name=name;
+		this.age=age;
+        this.property1="welcome in wipro";
+        this.property2="bye genpact"
+		console.log('person object is init');
+	    console.log('Name of the Person-->' +this.name);
+	    console.log('Age of the Person-->' +this.age);
+	
+  // define private method and variable here 
+
+      var myPrivate='i am private impl.';
+
+      var private_stuff=function(){
+ 
+            console.log("here is private impl-->");
+     
+         return myPrivate;
+        }   
+
+
+  // define the public method here 
+
+  // public methods
+     this.method1=function(arg1){
+
+
+      return arg1 + " " + this.property1;
+     }
+
+    // public methods
+     this.method2=function(arg2){
+
+
+      return arg2 + " " + this.property2;
+     }
+
+  // the previledge method here 
+
+    this.preMethod=function(){
+
+         console.log('call the previledge method here-->');
+    	return private_stuff();
+    }
+
+    this.testOverride = function(){
+        return "i am parent method";
+    }
+	}	
+
+// define static keyword here 
+
+ Person.test1=100;
+ Person.testStatic=function(){
+
+ 	return " I am static";
+ };
+// defination is over here 
+
+ Person.prototype.test=100;
+ Person.prototype.sayHello=function(){
+
+    console.log('add new method in person class');
+ 	return this.test;
+ }
+
+
+
+
+    var p=new Person('Amith',34);
+
+  // call the public method here 
+
+   //console.log('calling the public method here-->' +s.method1('Hello'));
+  // console.log('calling the another method here-->' +s.method2('hey'));
+  // console.log('calling the private impl-->' +p.private_stuff());
+  // previledge method here 
+
+  console.log('calling previlidge method here-->' +p.preMethod());
+
+ // console.log('calling the prototype here ->' +s.sayHello());
+
+	// calling staic impl here 
+ 
+ console.log('calling static impl -->' +Person.testStatic());
+
+  console.log(Person.test1);
+
+  function Student(){
+    this.property4 = "i belong to student one";
+    this.method4 = function(arg4){
+        return arg4 + "" + this.property4;
+    }
+
+    //method for override here
+    this.testOverride = function(){
+        return "i am child method";
+    }
+}
+//inheritance in es5
+Student.prototype = new Person('janam', 22);
+var s = new Student();
+console.log("inheritance" + s.method4('hi'));
+console.log("method overriding " + s.testOverride());
+	</script>
+</head>
+<body>
+    </body>
+    </html>

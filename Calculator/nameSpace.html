@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <script>
+
+            var Myapplication = {
+                calculatevat: function(base){
+                    return base*1.21;
+                },
+                Product: function(price){
+                    this.price = price;
+                    this.getPrice = function(){
+                        return this.price;
+                    };
+                },
+                doCal: function(){
+                    console.log("Calculation");
+                }
+                //add multiple class 
+            }
+
+            // object of class with namespace
+            var myApp = new Myapplication.Product(150);
+            console.log("get value of vat" + myApp.getPrice());
+            //method calling 
+            Myapplication.doCal();
+    </script>
+</head>
+<body>
+
+</body>
+</html>
