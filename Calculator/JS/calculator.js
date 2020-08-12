@@ -4,35 +4,41 @@ function addChar(input, character) {
 	else
 		input.value += character
 }
-function ScientificCal(){
-    
-    this.cosCal = function(form){
+class ScientificCal{
+	
+    cosCal(form){
         return Math.cos(form.display.value);
     }
 
-    this.sinCal = function(form){
-        return Math.sin(form.display.value);
+    sinCal(value){
+        return Math.sin(value);
     }
 
     
-    this.tanCal = function(form){
+    tanCal(form){
         return Math.tan(form.display.value);
     }
 
     
-    this.sqrtCal = function(form){
-        return Math.sqrt(form.display.value);
-    }
+    sqrtCal(value){
+        return Math.sqrt(value);
+	}
+	
+	static lnCal(form) {
+
+		logcalculation = Math.log(form.display.value);
+		return logcalculation;
+	};
 }
 
-var scientific = new ScientificCal();
+let scientific = new ScientificCal();
 
 function cos(form) {
 	form.display.value = scientific.cosCal(form);
 }
 
 function sin(form) {
-	form.display.value = scientific.sinCal(form);
+	form.display.value = scientific.sinCal(form.display.value);
 }
 
 function tan(form) {
@@ -40,14 +46,8 @@ function tan(form) {
 }
 
 function sqrt(form) {
-	form.display.value = scientific.sqrtCal(form);
+	form.display.value = scientific.sqrtCal(form.display.value);
 }
-
-ScientificCal.lnCal = function(form) {
-
-    logcalculation = Math.log(form.display.value);
-	return logcalculation;
-};
 
 function ln(form){
     form.display.value = Calculate.lnCal(form);
@@ -61,29 +61,29 @@ function exp(form) {
 	form.display.value = calculate.expCal(form);
 }
 
-function BasicCal(){
+class BasicCal{
 
-	this.delete = function(input){
+	delete(input){
 		return input.value.substring(0, input.value.length - 1);
 	}
 
-	this.changeSign = function(input){
+	changeSign(input){
 		if(input.value.substring(0, 1) == "-")
 		 return input.value.substring(1, input.value.length)
 		else
 		 return "-" + input.value
 	}
 
-	this.calculate = function(form){
-		return eval(form.display.value);
+	cal(value){
+		return eval(value);
 	}
 
-	this.sqrt = function(){
+	sqrt(form){
 		return eval(form.display.value) * eval(form.display.value);
 	}
 }
 
-var basicCal = new BasicCal();
+let basicCal = new BasicCal();
 
 function deleteChar(input) {
 	input.value = basicCal.delete(input); 
@@ -94,7 +94,7 @@ function changeSign(input) {
 }
 
 function compute(form) {
-	form.display.value = basicCal.calculate(form);
+	form.display.value = basicCal.cal(form.display.value);
 }
 
 function square(form) {
